@@ -23,7 +23,7 @@ public class Program
 
       while (x + c * s  > x)
       {
-      x-= s; s = x * x - S; s = (2D * x  *s)/(4D  *S + 3D * s);
+      x-= s; s = x * x - S; s = (2D * x * s)/(4D * S + 3D * s);
       }
       
       return x * 3D / 4D + (x / 4D - s);
