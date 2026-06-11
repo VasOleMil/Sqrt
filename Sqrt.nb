@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       154,          7]
-NotebookDataLength[     18454,        516]
-NotebookOptionsPosition[     17976,        500]
-NotebookOutlinePosition[     18404,        517]
-CellTagsIndexPosition[     18361,        514]
+NotebookDataLength[     22642,        640]
+NotebookOptionsPosition[     22164,        624]
+NotebookOutlinePosition[     22592,        641]
+CellTagsIndexPosition[     22549,        638]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -334,28 +334,29 @@ Cell[BoxData[{
               RowBox[{"x", "/", "4.0"}], "-", "s"}], ")"}]}]}]}], "]"}]}], 
        "]"}]}], "]"}]}], ";"}], "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
  RowBox[{
+  RowBox[{"ClearAll", "[", "P", "]"}], ";", 
+  RowBox[{"P", "=", 
+   RowBox[{"Ceiling", "[", "MachinePrecision", "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
   RowBox[{"Print", "[", 
    RowBox[{"\"\<SqrtRowFC:\\t\>\"", ",", 
     RowBox[{"NumberForm", "[", 
      RowBox[{
-      RowBox[{"SqrtRowFC", "[", "2.0", "]"}], ",", 
-      RowBox[{"Ceiling", "[", "MachinePrecision", "]"}]}], "]"}]}], "]"}], 
+      RowBox[{"SqrtRowFC", "[", "2.0", "]"}], ",", "P"}], "]"}]}], "]"}], 
   ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"Print", "[", 
    RowBox[{"\"\<SqrtRowFA:\\t\>\"", ",", 
     RowBox[{"NumberForm", "[", 
      RowBox[{
-      RowBox[{"SqrtRowFA", "[", "2.0", "]"}], ",", 
-      RowBox[{"Ceiling", "[", "MachinePrecision", "]"}]}], "]"}]}], "]"}], 
+      RowBox[{"SqrtRowFA", "[", "2.0", "]"}], ",", "P"}], "]"}]}], "]"}], 
   ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"Print", "[", 
    RowBox[{"\"\<SqrtRowMC:\\t\>\"", ",", 
     RowBox[{"NumberForm", "[", 
      RowBox[{
-      RowBox[{"SqrtRowMC", "[", "2.0", "]"}], ",", 
-      RowBox[{"Ceiling", "[", "MachinePrecision", "]"}]}], "]"}]}], "]"}], 
+      RowBox[{"SqrtRowMC", "[", "2.0", "]"}], ",", "P"}], "]"}]}], "]"}], 
   ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{
@@ -363,14 +364,14 @@ Cell[BoxData[{
     RowBox[{"\"\<SqrtRowMA:\\t\>\"", ",", 
      RowBox[{"NumberForm", "[", 
       RowBox[{
-       RowBox[{"SqrtRowMA", "[", "2.0", "]"}], ",", 
-       RowBox[{"Ceiling", "[", "MachinePrecision", "]"}]}], "]"}]}], "]"}], 
+       RowBox[{"SqrtRowMA", "[", "2.0", "]"}], ",", "P"}], "]"}]}], "]"}], 
    ";"}], "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
  RowBox[{
-  RowBox[{"Clear", "[", 
+  RowBox[{"ClearAll", "[", 
    RowBox[{
    "S", ",", "X", ",", "L", ",", "R", ",", "sr", ",", "se", ",", "sm", ",", 
-    "Yr", ",", "Ye", ",", "Ym", ",", "dX", ",", "i"}], "]"}], ";"}], "\n", 
+    "Yr", ",", "Ye", ",", "Ym", ",", "dX", ",", "i", ",", "x"}], "]"}], 
+  ";"}], "\n", 
  RowBox[{
   RowBox[{"S", "=", "10"}], ";", 
   RowBox[{"L", "=", 
@@ -387,47 +388,46 @@ Cell[BoxData[{
   RowBox[{"se", "=", "0"}], ";", 
   RowBox[{"sm", "=", "0"}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
-  RowBox[{
-   RowBox[{"For", "[", 
+  RowBox[{"For", "[", 
+   RowBox[{
+    RowBox[{"i", "=", "1"}], ",", 
+    RowBox[{"i", "<=", "10000"}], ",", 
+    RowBox[{"i", "++"}], ",", "\[IndentingNewLine]", 
     RowBox[{
-     RowBox[{"i", "=", "1"}], ",", 
-     RowBox[{"i", "<=", "10000"}], ",", 
-     RowBox[{"i", "++"}], ",", "\[IndentingNewLine]", 
-     RowBox[{
-      RowBox[{"X", "=", 
-       RowBox[{"RandomReal", "[", 
-        RowBox[{"{", 
-         RowBox[{"L", ",", "R"}], "}"}], "]"}]}], ";", 
-      RowBox[{"dX", "=", 
-       RowBox[{"$MachineEpsilon", "*", "X"}]}], ";", "\[IndentingNewLine]", 
-      RowBox[{"Yr", "=", 
-       RowBox[{"SqrtRowFA", "[", "X", "]"}]}], ";", 
-      RowBox[{"Ye", "=", 
-       RowBox[{"SqrtRowMA", "[", "X", "]"}]}], ";", 
-      RowBox[{"Ym", "=", 
-       RowBox[{"Sqrt", "[", "X", "]"}]}], ";", "\[IndentingNewLine]", 
-      RowBox[{"If", "[", 
+     RowBox[{"X", "=", 
+      RowBox[{"RandomReal", "[", 
+       RowBox[{"{", 
+        RowBox[{"L", ",", "R"}], "}"}], "]"}]}], ";", 
+     RowBox[{"dX", "=", 
+      RowBox[{"$MachineEpsilon", "*", "X"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"Yr", "=", 
+      RowBox[{"SqrtRowFA", "[", "X", "]"}]}], ";", 
+     RowBox[{"Ye", "=", 
+      RowBox[{"SqrtRowMA", "[", "X", "]"}]}], ";", 
+     RowBox[{"Ym", "=", 
+      RowBox[{"Sqrt", "[", "X", "]"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"If", "[", 
+      RowBox[{
        RowBox[{
-        RowBox[{
-         RowBox[{"Abs", "[", 
-          RowBox[{
-           RowBox[{"Yr", "*", "Yr"}], "-", "X"}], "]"}], "<=", "dX"}], ",", 
-        RowBox[{"sr", "++"}]}], "]"}], ";", "\[IndentingNewLine]", 
-      RowBox[{"If", "[", 
+        RowBox[{"Abs", "[", 
+         RowBox[{
+          RowBox[{"Yr", "*", "Yr"}], "-", "X"}], "]"}], "<=", "dX"}], ",", 
+       RowBox[{"sr", "++"}]}], "]"}], ";", "\[IndentingNewLine]", 
+     RowBox[{"If", "[", 
+      RowBox[{
        RowBox[{
-        RowBox[{
-         RowBox[{"Abs", "[", 
-          RowBox[{
-           RowBox[{"Ye", "*", "Ye"}], "-", "X"}], "]"}], "<=", "dX"}], ",", 
-        RowBox[{"se", "++"}]}], "]"}], ";", "\[IndentingNewLine]", 
-      RowBox[{"If", "[", 
+        RowBox[{"Abs", "[", 
+         RowBox[{
+          RowBox[{"Ye", "*", "Ye"}], "-", "X"}], "]"}], "<=", "dX"}], ",", 
+       RowBox[{"se", "++"}]}], "]"}], ";", "\[IndentingNewLine]", 
+     RowBox[{"If", "[", 
+      RowBox[{
        RowBox[{
-        RowBox[{
-         RowBox[{"Abs", "[", 
-          RowBox[{
-           RowBox[{"Ym", "*", "Ym"}], "-", "X"}], "]"}], "<=", "dX"}], ",", 
-        RowBox[{"sm", "++"}]}], "]"}]}]}], "]"}], ";", 
-   RowBox[{"i", "--"}], ";"}], "\[IndentingNewLine]"}], "\n", 
+        RowBox[{"Abs", "[", 
+         RowBox[{
+          RowBox[{"Ym", "*", "Ym"}], "-", "X"}], "]"}], "<=", "dX"}], ",", 
+       RowBox[{"sm", "++"}]}], "]"}]}]}], "]"}], ";", 
+  RowBox[{"i", "--"}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{
    RowBox[{"Print", "[", 
@@ -443,7 +443,131 @@ Cell[BoxData[{
       RowBox[{"N", "[", "i", "]"}]}]}], "]"}], ";"}], 
   "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
  RowBox[{
-  RowBox[{"Clear", "[", 
+  RowBox[{"Print", "[", 
+   RowBox[{"\"\<\\nDefault floating number precision P = \>\"", ",", "P"}], 
+   "]"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+  "Print", "[", "\"\<Working range S == \!\(\*SuperscriptBox[\(x\), \
+\(2\)]\)\>\"", "]"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Print", "[", 
+   RowBox[{"\"\<\\tSqrtRowMA: \!\(\*SubscriptBox[\(S\), \(min\)]\) = 10^-\>\"",
+     ",", 
+    RowBox[{
+     RowBox[{"x", "=", "1"}], ";", 
+     RowBox[{"While", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"Check", "[", 
+         RowBox[{
+          RowBox[{"SqrtRowMA", "[", 
+           RowBox[{"10.0", "^", 
+            RowBox[{"-", "x"}]}], "]"}], ",", 
+          RowBox[{"-", "1.0"}]}], "]"}], ">", "0.0"}], ",", 
+       RowBox[{"x", "++"}]}], "]"}], ";", 
+     RowBox[{"--", "x"}], ";", "x"}]}], "]"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Print", "[", 
+   RowBox[{"\"\<\\t\\t min result: x = \>\"", ",", 
+    RowBox[{
+     RowBox[{"X", "=", 
+      RowBox[{"10.0", "^", 
+       RowBox[{"-", "x"}]}]}], ";", 
+     RowBox[{"NumberForm", "[", 
+      RowBox[{
+       RowBox[{"SqrtRowMA", "[", "X", "]"}], ",", "P"}], "]"}]}], ",", 
+    " ", "\"\<\\tSqrt: \>\"", ",", 
+    RowBox[{"NumberForm", "[", 
+     RowBox[{
+      RowBox[{"Sqrt", "[", "X", "]"}], ",", "P"}], "]"}]}], "]"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Print", "[", 
+   RowBox[{"\"\<\\tSqrtRowMA: \!\(\*SubscriptBox[\(S\), \(max\)]\) = 10^+\>\"",
+     ",", 
+    RowBox[{
+     RowBox[{"x", "=", "1"}], ";", 
+     RowBox[{"While", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"Check", "[", 
+         RowBox[{
+          RowBox[{"SqrtRowMA", "[", 
+           RowBox[{"10.0", "^", 
+            RowBox[{"+", "x"}]}], "]"}], ",", 
+          RowBox[{"-", "1.0"}]}], "]"}], ">", "0.0"}], ",", 
+       RowBox[{"x", "++"}]}], "]"}], ";", 
+     RowBox[{"--", "x"}], ";", "x"}]}], "]"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Print", "[", 
+   RowBox[{"\"\<\\t\\t max result: x = \>\"", ",", 
+    RowBox[{
+     RowBox[{"X", "=", 
+      RowBox[{"10.0", "^", 
+       RowBox[{"+", "x"}]}]}], ";", 
+     RowBox[{"NumberForm", "[", 
+      RowBox[{
+       RowBox[{"SqrtRowMA", "[", "X", "]"}], ",", "P"}], "]"}]}], ",", 
+    " ", "\"\<\\tSqrt: \>\"", ",", 
+    RowBox[{"NumberForm", "[", 
+     RowBox[{
+      RowBox[{"Sqrt", "[", "X", "]"}], ",", "P"}], "]"}]}], "]"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"ListLinePlot", "[", 
+  RowBox[{
+   RowBox[{"Table", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"S", ",", 
+       RowBox[{"Check", "[", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"SqrtRowFC", "[", 
+           RowBox[{
+            RowBox[{"RandomReal", "[", 
+             RowBox[{"{", 
+              RowBox[{"1.0", ",", "9.9"}], "}"}], "]"}], 
+            RowBox[{"10", "^", "S"}]}], "]"}], "[", 
+          RowBox[{"[", "2", "]"}], "]"}], ",", "0"}], "]"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"S", ",", 
+       RowBox[{"-", "163"}], ",", 
+       RowBox[{"+", "103"}], ",", "1"}], "}"}]}], "]"}], ",", 
+   RowBox[{"AxesLabel", "->", 
+    RowBox[{"{", 
+     RowBox[{"\"\<Log_10[S]\>\"", ",", "\"\<Iterations F\>\""}], "}"}]}]}], 
+  "]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Print", "[", 
+   RowBox[{"\"\<\\t\\t min result: x = \>\"", ",", 
+    RowBox[{
+     RowBox[{"X", "=", 
+      RowBox[{"10.0", "^", 
+       RowBox[{"-", "160"}]}]}], ";", 
+     RowBox[{"NumberForm", "[", 
+      RowBox[{
+       RowBox[{"SqrtRowFA", "[", "X", "]"}], ",", "P"}], "]"}]}], ",", 
+    " ", "\"\<\\tSqrt: \>\"", ",", 
+    RowBox[{"NumberForm", "[", 
+     RowBox[{
+      RowBox[{"Sqrt", "[", "X", "]"}], ",", "P"}], "]"}]}], "]"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"Print", "[", 
+    RowBox[{"\"\<\\t\\t max result: x = \>\"", ",", 
+     RowBox[{
+      RowBox[{"X", "=", 
+       RowBox[{"10.0", "^", 
+        RowBox[{"+", "100"}]}]}], ";", 
+      RowBox[{"NumberForm", "[", 
+       RowBox[{
+        RowBox[{"SqrtRowFA", "[", "X", "]"}], ",", "P"}], "]"}]}], ",", 
+     " ", "\"\<\\tSqrt: \>\"", ",", 
+     RowBox[{"NumberForm", "[", 
+      RowBox[{
+       RowBox[{"Sqrt", "[", "X", "]"}], ",", "P"}], "]"}]}], "]"}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"ClearAll", "[", 
    RowBox[{"S", ",", "X"}], "]"}], ";", 
   RowBox[{"$Line", "=", "0"}], ";"}], "\[IndentingNewLine]", 
  RowBox[{"ListLinePlot", "[", 
@@ -468,7 +592,7 @@ Cell[BoxData[{
        RowBox[{"+", "300"}], ",", "5"}], "}"}]}], "]"}], ",", 
    RowBox[{"AxesLabel", "->", 
     RowBox[{"{", 
-     RowBox[{"\"\<Log_10[S]\>\"", ",", "\"\<Iterations\>\""}], "}"}]}]}], 
+     RowBox[{"\"\<Log_10[S]\>\"", ",", "\"\<Iterations M\>\""}], "}"}]}]}], 
   "]"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"ListLinePlot", "[", 
@@ -491,14 +615,14 @@ Cell[BoxData[{
       RowBox[{"{", 
        RowBox[{"S", ",", 
         RowBox[{"-", "300"}], ",", 
-        RowBox[{"+", "60"}], ",", "5"}], "}"}]}], "]"}], ",", 
+        RowBox[{"+", "100"}], ",", "5"}], "}"}]}], "]"}], ",", 
     RowBox[{"AxesLabel", "->", 
      RowBox[{"{", 
       RowBox[{"\"\<Log_10[S]\>\"", ",", "\"\<Delta\>\""}], "}"}]}]}], "]"}], 
   "\[IndentingNewLine]"}], "\[IndentingNewLine]"}], "Input",
  CellLabel->"In[3]:=",ExpressionUUID->"b5a852b3-9363-8c46-be8a-045cf847944a"]
 },
-WindowSize->{1428, 735.75},
+WindowSize->{1428, 729.75},
 WindowMargins->{{0, Automatic}, {Automatic, 0}},
 TrackCellChangeTimes->False,
 FrontEndVersion->"14.3 for Microsoft Windows (64-bit) (July 8, 2025)",
@@ -517,7 +641,7 @@ CellTagsIndex->{}
 (*NotebookFileOutline
 Notebook[{
 Cell[554, 20, 81, 0, 28, "Input",ExpressionUUID->"1207b7b3-f757-da43-9145-ac2d4dc2113f"],
-Cell[638, 22, 17334, 476, 1212, "Input",ExpressionUUID->"b5a852b3-9363-8c46-be8a-045cf847944a"]
+Cell[638, 22, 21522, 600, 1405, "Input",ExpressionUUID->"b5a852b3-9363-8c46-be8a-045cf847944a"]
 }
 ]
 *)
