@@ -21,7 +21,7 @@ public class Program
 
       x = S; s = x * x - S; s = (2D * x * s)/(4D * S + 3D * s);
 
-      while(x + c * s  > x)
+      while (x + c * s  > x)
       {
       x-= s; s = x * x - S; s = (2D * x  *s)/(4D  *S + 3D * s);
       }
