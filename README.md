@@ -28,4 +28,4 @@ Solve[(xn - xp) == -(xp^2 - S) / (2 * ((xn + xp) / 2)), xn]
 (* Output: {{xn -> -Sqrt[S]}, {xn -> Sqrt[S]}} *)
 ```
 
-Geometrically, the underlying parabola is traversed in exactly one step when using the true midpoint derivative. In practice, substituting xn​ with a preliminary Newton step lowers the pure theoretical convergence, yet it ensures algorithmic stability. This safeguard prevents the engine from overstepping the solution; in the vicinity of zero, the method transitions smoothly into a bisectional regime, guaranteeing convergence under all conditions.
+Geometrically, the underlying parabola is traversed in exactly one step when using the true midpoint derivative. In practice, substituting $x_n$​ with a preliminary Newton step lowers the pure theoretical convergence, yet it ensures algorithmic stability. This safeguard prevents the engine from overstepping the solution; in the vicinity of zero, the method transitions smoothly into a bisectional regime, guaranteeing convergence under all conditions.
