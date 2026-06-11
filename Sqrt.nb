@@ -1,0 +1,308 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Wolfram 14.3' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       154,          7]
+NotebookDataLength[     10643,        300]
+NotebookOptionsPosition[     10165,        284]
+NotebookOutlinePosition[     10595,        301]
+CellTagsIndexPosition[     10552,        298]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[""], "Input",ExpressionUUID->"1207b7b3-f757-da43-9145-ac2d4dc2113f"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"ClearAll", "[", "SqrtRowMC", "]"}], ";"}], 
+  RowBox[{"(*", 
+   RowBox[{"Complexity", " ", "report"}], "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"SqrtRowMC", "=", 
+   RowBox[{"Compile", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"{", 
+       RowBox[{"S", ",", "_Real"}], "}"}], "}"}], ",", 
+     RowBox[{"Module", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+        "X", ",", "x", ",", "s", ",", "c", ",", "b", ",", "d", ",", "e", ",", 
+         "n"}], "}"}], ",", "\[IndentingNewLine]", 
+       RowBox[{"If", "[", 
+        RowBox[{
+         RowBox[{"S", "<=", "0.0"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"0.0", ",", "0.0"}], "}"}], ",", 
+         RowBox[{
+          RowBox[{"b", "=", "2.0"}], ";", 
+          RowBox[{"d", "=", "2"}], ";", 
+          RowBox[{"e", "=", 
+           RowBox[{
+            RowBox[{"Floor", "[", 
+             RowBox[{"Log2", "[", "S", "]"}], "]"}], "+", "1"}]}], ";", "\n", 
+          "\t   ", 
+          RowBox[{"d", "+=", 
+           RowBox[{"Mod", "[", 
+            RowBox[{"e", ",", "2"}], "]"}]}], ";", " ", 
+          RowBox[{"X", "=", 
+           RowBox[{"S", "/", 
+            RowBox[{"(", 
+             RowBox[{"b", "^", "e"}], ")"}]}]}], ";", 
+          RowBox[{"X", "*=", 
+           RowBox[{"b", "^", "d"}]}], ";", " ", "\[IndentingNewLine]", 
+          RowBox[{"c", "=", 
+           RowBox[{"If", "[", 
+            RowBox[{
+             RowBox[{"X", ">=", "1.0"}], ",", "1.0", ",", 
+             RowBox[{"-", "1.0"}]}], "]"}]}], ";", 
+          RowBox[{"b", "=", 
+           RowBox[{"b", "^", 
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"(", 
+               RowBox[{"e", "-", "d"}], ")"}], "/", "2"}], ")"}]}]}], ";", 
+          "\[IndentingNewLine]", 
+          RowBox[{"n", "=", "1"}], ";", "                           ", 
+          RowBox[{"x", "=", "X"}], "  ", ";", 
+          RowBox[{"s", "=", 
+           RowBox[{
+            RowBox[{"x", "*", "x"}], "-", "X"}]}], ";", 
+          RowBox[{"s", "=", 
+           FractionBox[
+            RowBox[{"2.0", " ", "x", " ", "s"}], 
+            RowBox[{
+             RowBox[{"4.0", " ", "X"}], "+", " ", 
+             RowBox[{"3.0", " ", "s"}]}]]}], ";", "\[IndentingNewLine]", 
+          RowBox[{"While", "[", 
+           RowBox[{
+            RowBox[{
+             RowBox[{"x", "+", 
+              RowBox[{"c", "*", "s"}]}], ">", "x"}], ",", 
+            RowBox[{
+             RowBox[{"x", "-=", "s"}], ";", 
+             RowBox[{"s", "=", 
+              RowBox[{
+               RowBox[{"x", "*", "x"}], "-", "X"}]}], ";", 
+             RowBox[{"s", "=", 
+              FractionBox[
+               RowBox[{"2.0", " ", "x", " ", "s"}], 
+               RowBox[{
+                RowBox[{"4.0", " ", "X"}], "+", " ", 
+                RowBox[{"3.0", " ", "s"}]}]]}], ";", 
+             RowBox[{"n", "++"}]}]}], "]"}], ";", "\[IndentingNewLine]", 
+          RowBox[{"x", "*=", "b"}], ";", 
+          RowBox[{"s", "*=", "b"}], ";", " ", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"(", 
+             RowBox[{
+              FractionBox["x", "2.0"], "+", 
+              RowBox[{"(", 
+               RowBox[{
+                FractionBox["x", "4.0"], "+", 
+                RowBox[{"(", 
+                 RowBox[{
+                  FractionBox["x", "4.0"], "-", "s"}], ")"}]}], ")"}]}], 
+             ")"}], ",", 
+            RowBox[{"N", "[", "n", "]"}]}], "}"}]}]}], "]"}]}], "]"}]}], 
+    "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"ClearAll", "[", "SqrtRowMA", "]"}], ";"}], 
+  RowBox[{"(*", 
+   RowBox[{"Accuracy", " ", "oriented"}], "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"SqrtRowMA", "=", 
+    RowBox[{"Compile", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"{", 
+        RowBox[{"S", ",", "_Real"}], "}"}], "}"}], ",", 
+      RowBox[{"Module", "[", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{
+         "X", ",", "x", ",", "s", ",", "c", ",", "b", ",", "d", ",", "e"}], 
+         "}"}], ",", "\[IndentingNewLine]", 
+        RowBox[{"If", "[", 
+         RowBox[{
+          RowBox[{"S", "<=", "0.0"}], ",", "0.0", ",", 
+          RowBox[{
+           RowBox[{"b", "=", "2.0"}], ";", 
+           RowBox[{"d", "=", "2"}], ";", 
+           RowBox[{"e", "=", 
+            RowBox[{
+             RowBox[{"Floor", "[", 
+              RowBox[{"Log2", "[", "S", "]"}], "]"}], "+", "1"}]}], ";", "\n",
+            "\t     ", 
+           RowBox[{"d", "+=", 
+            RowBox[{"Mod", "[", 
+             RowBox[{"e", ",", "2"}], "]"}]}], ";", " ", 
+           RowBox[{"X", "=", 
+            RowBox[{"S", "/", 
+             RowBox[{"(", 
+              RowBox[{"b", "^", "e"}], ")"}]}]}], ";", 
+           RowBox[{"X", "*=", 
+            RowBox[{"b", "^", "d"}]}], ";", " ", "\[IndentingNewLine]", 
+           RowBox[{"c", "=", 
+            RowBox[{"If", "[", 
+             RowBox[{
+              RowBox[{"X", ">=", "1.0"}], ",", "1.0", ",", 
+              RowBox[{"-", "1.0"}]}], "]"}]}], ";", 
+           RowBox[{"b", "=", 
+            RowBox[{"b", "^", 
+             RowBox[{"(", 
+              RowBox[{
+               RowBox[{"(", 
+                RowBox[{"e", "-", "d"}], ")"}], "/", "2"}], ")"}]}]}], ";", 
+           "\[IndentingNewLine]", 
+           RowBox[{"(*", " ", 
+            RowBox[{"first", " ", "step"}], " ", "*)"}], "   ", 
+           RowBox[{"x", "=", "X"}], "  ", ";", 
+           RowBox[{"s", "=", 
+            RowBox[{
+             RowBox[{"x", "*", "x"}], "-", "X"}]}], ";", 
+           RowBox[{"s", "=", 
+            FractionBox[
+             RowBox[{"2.0", " ", "x", " ", "s"}], 
+             RowBox[{
+              RowBox[{"4.0", " ", "X"}], "+", " ", 
+              RowBox[{"3.0", " ", "s"}]}]]}], ";", "\[IndentingNewLine]", 
+           RowBox[{"While", "[", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"x", "+", 
+               RowBox[{"c", "*", "s"}]}], ">", "x"}], ",", 
+             RowBox[{
+              RowBox[{"x", "-=", "s"}], ";", 
+              RowBox[{"s", "=", 
+               RowBox[{
+                RowBox[{"x", "*", "x"}], "-", "X"}]}], ";", 
+              RowBox[{"s", "=", 
+               FractionBox[
+                RowBox[{"2.0", " ", "x", " ", "s"}], 
+                RowBox[{
+                 RowBox[{"4.0", " ", "X"}], "+", " ", 
+                 RowBox[{"3.0", " ", "s"}]}]]}]}]}], "]"}], ";", 
+           "\[IndentingNewLine]", 
+           RowBox[{"x", "*=", "b"}], ";", 
+           RowBox[{"s", "*=", "b"}], ";", " ", 
+           RowBox[{"(", 
+            RowBox[{
+             FractionBox["x", "2.0"], "+", 
+             RowBox[{"(", 
+              RowBox[{
+               FractionBox["x", "4.0"], "+", 
+               RowBox[{"(", 
+                RowBox[{
+                 FractionBox["x", "4.0"], "-", "s"}], ")"}]}], ")"}]}], 
+            ")"}]}]}], "]"}]}], "]"}]}], "]"}]}], ";"}], 
+  "\[IndentingNewLine]", "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Print", "[", 
+   RowBox[{"\"\<SqrtRowMC:\\t\>\"", ",", 
+    RowBox[{"NumberForm", "[", 
+     RowBox[{
+      RowBox[{"SqrtRowMC", "[", "2.0", "]"}], ",", 
+      RowBox[{"Ceiling", "[", "MachinePrecision", "]"}]}], "]"}]}], "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Print", "[", 
+   RowBox[{"\"\<SqrtRowMA:\\t\>\"", ",", 
+    RowBox[{"NumberForm", "[", 
+     RowBox[{
+      RowBox[{"SqrtRowMA", "[", "2.0", "]"}], ",", 
+      RowBox[{"Ceiling", "[", "MachinePrecision", "]"}]}], "]"}]}], "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Clear", "[", 
+   RowBox[{"S", ",", "X"}], "]"}], ";", 
+  RowBox[{"$Line", "=", "0"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"ListLinePlot", "[", 
+  RowBox[{
+   RowBox[{"Table", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"S", ",", 
+       RowBox[{"Check", "[", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"SqrtRowMC", "[", 
+           RowBox[{
+            RowBox[{"RandomReal", "[", 
+             RowBox[{"{", 
+              RowBox[{"1.0", ",", "9.9"}], "}"}], "]"}], 
+            RowBox[{"10", "^", "S"}]}], "]"}], "[", 
+          RowBox[{"[", "2", "]"}], "]"}], ",", "0"}], "]"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"S", ",", 
+       RowBox[{"-", "300"}], ",", 
+       RowBox[{"+", "300"}], ",", "5"}], "}"}]}], "]"}], ",", 
+   RowBox[{"AxesLabel", "->", 
+    RowBox[{"{", 
+     RowBox[{"\"\<Log_10[S]\>\"", ",", "\"\<Iterations\>\""}], "}"}]}]}], 
+  "]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"ListLinePlot", "[", 
+   RowBox[{
+    RowBox[{"Table", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"S", ",", 
+        RowBox[{"Check", "[", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"SqrtRowMA", "[", 
+            RowBox[{"X", "=", 
+             RowBox[{
+              RowBox[{"RandomReal", "[", 
+               RowBox[{"{", 
+                RowBox[{"1.0", ",", "9.9"}], "}"}], "]"}], 
+              RowBox[{"10", "^", "S"}]}]}], "]"}], "-", 
+           RowBox[{"Sqrt", "[", "X", "]"}]}], ",", "0"}], "]"}]}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"S", ",", 
+        RowBox[{"-", "300"}], ",", 
+        RowBox[{"+", "60"}], ",", "5"}], "}"}]}], "]"}], ",", 
+    RowBox[{"AxesLabel", "->", 
+     RowBox[{"{", 
+      RowBox[{"\"\<Log_10[S]\>\"", ",", "\"\<Delta\>\""}], "}"}]}]}], "]"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]"}], "Input",
+ CellLabel->"In[3]:=",ExpressionUUID->"b5a852b3-9363-8c46-be8a-045cf847944a"]
+},
+WindowSize->{1440, 741.75},
+WindowMargins->{{-6, Automatic}, {Automatic, -6}},
+TrackCellChangeTimes->False,
+FrontEndVersion->"14.3 for Microsoft Windows (64-bit) (July 8, 2025)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"c9b7bfcd-b429-cd4f-a1bd-03f06a12a7bd"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[554, 20, 81, 0, 28, "Input",ExpressionUUID->"1207b7b3-f757-da43-9145-ac2d4dc2113f"],
+Cell[638, 22, 9523, 260, 626, "Input",ExpressionUUID->"b5a852b3-9363-8c46-be8a-045cf847944a"]
+}
+]
+*)
+
