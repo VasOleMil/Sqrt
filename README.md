@@ -17,7 +17,7 @@ FullSimplify[(xp^2 - S)/(2 * (xp - (xp^2 - S)/(4 * xp)))]
 
 Performance & Stability
 
-While this sqrt algorithm is stable, maintaining ultimate precision across exceptionally large range (10^{-160} : 10^{+100}) naturally consumes more processor cycles. By leveraging the floating-point representation—specifically normalising the exponent—we can drastically reduce the search space. This optimisation ensures guaranteed convergence within just 5 to 6 iterations across the reachable IEEE 754 double precision range.
+While this sqrt algorithm is stable, maintaining ultimate precision across exceptionally large range (1.0E-160 : 1.0E+100) naturally consumes more processor cycles. By leveraging the floating-point representation—specifically normalising the exponent—we can drastically reduce the search space. This optimisation ensures guaranteed convergence within just 5 to 6 iterations across the reachable IEEE 754 double precision range.
 
 Note on cubic convergence and stability:
 
