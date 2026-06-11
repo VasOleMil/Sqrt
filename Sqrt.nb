@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       154,          7]
-NotebookDataLength[     22642,        640]
-NotebookOptionsPosition[     22164,        624]
-NotebookOutlinePosition[     22592,        641]
-CellTagsIndexPosition[     22549,        638]
+NotebookDataLength[     22522,        637]
+NotebookOptionsPosition[     22044,        621]
+NotebookOutlinePosition[     22472,        638]
+CellTagsIndexPosition[     22429,        635]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -336,7 +336,8 @@ Cell[BoxData[{
  RowBox[{
   RowBox[{"ClearAll", "[", "P", "]"}], ";", 
   RowBox[{"P", "=", 
-   RowBox[{"Ceiling", "[", "MachinePrecision", "]"}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{"Ceiling", "[", "MachinePrecision", "]"}]}], ";", " ", 
+  RowBox[{"$Line", "=", "0"}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"Print", "[", 
    RowBox[{"\"\<SqrtRowFC:\\t\>\"", ",", 
@@ -566,10 +567,6 @@ Cell[BoxData[{
       RowBox[{
        RowBox[{"Sqrt", "[", "X", "]"}], ",", "P"}], "]"}]}], "]"}], ";"}], 
   "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{"ClearAll", "[", 
-   RowBox[{"S", ",", "X"}], "]"}], ";", 
-  RowBox[{"$Line", "=", "0"}], ";"}], "\[IndentingNewLine]", 
  RowBox[{"ListLinePlot", "[", 
   RowBox[{
    RowBox[{"Table", "[", 
@@ -619,8 +616,8 @@ Cell[BoxData[{
     RowBox[{"AxesLabel", "->", 
      RowBox[{"{", 
       RowBox[{"\"\<Log_10[S]\>\"", ",", "\"\<Delta\>\""}], "}"}]}]}], "]"}], 
-  "\[IndentingNewLine]"}], "\[IndentingNewLine]"}], "Input",
- CellLabel->"In[3]:=",ExpressionUUID->"b5a852b3-9363-8c46-be8a-045cf847944a"]
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]"}], "Input",ExpressionUUID->\
+"b5a852b3-9363-8c46-be8a-045cf847944a"]
 },
 WindowSize->{1428, 729.75},
 WindowMargins->{{0, Automatic}, {Automatic, 0}},
@@ -641,7 +638,7 @@ CellTagsIndex->{}
 (*NotebookFileOutline
 Notebook[{
 Cell[554, 20, 81, 0, 28, "Input",ExpressionUUID->"1207b7b3-f757-da43-9145-ac2d4dc2113f"],
-Cell[638, 22, 21522, 600, 1405, "Input",ExpressionUUID->"b5a852b3-9363-8c46-be8a-045cf847944a"]
+Cell[638, 22, 21402, 597, 1386, "Input",ExpressionUUID->"b5a852b3-9363-8c46-be8a-045cf847944a"]
 }
 ]
 *)
