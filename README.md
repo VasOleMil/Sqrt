@@ -2,7 +2,7 @@
 
 Square root, stable and fast algorithm. Halley's method: plans the next step using the derivative evaluated midway between the current and next positions.
 
-$x_n=x_p-\frac{2 x_p \left({x^2_p}-S\right)}{S+3 {x^2_p}}=x_p-\frac{2 x_p\left({x^2_p}-S\right)}{4\ S+3( {x^2_p}-S)}=\frac{2 x_p\cdot s}{4\cdot S+3\cdot s},\quad s ={x^2_p}-S$
+$x_n=x_p-\frac{2\ x_p \left({x^2_p}-S\right)}{S+3\ {x^2_p}}=x_p-\frac{2\ x_p\left({x^2_p}-S\right)}{4\ S+3( {x^2_p}-S)}==x_p-\frac{2\cdot x_p\cdot s}{4\cdot S+3\cdot s}\ ,\quad s ={x^2_p}-S$
 
 ```wolfram
 (*=====Wolfram Language=====*)
