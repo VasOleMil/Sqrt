@@ -17,7 +17,7 @@ FullSimplify[(xp^2 - S)/(2 * (xp - (xp^2 - S)/(4 * xp)))]
 
 Performance & Stability
 
-While this sqrt algorithm is stable, maintaining ultimate precision across exceptionally large numbers naturally consumes more processor cycles. By leveraging the floating-point representation—specifically normalising the exponent—we can drastically reduce the search space. This optimisation ensures guaranteed convergence within just 5 to 6 iterations across the entire IEEE 754 double precision range.
+While this sqrt algorithm is stable, maintaining ultimate precision across exceptionally large numbers naturally consumes more processor cycles. By leveraging the floating-point representation—specifically normalising the exponent—we can drastically reduce the search space. This optimisation ensures guaranteed convergence within just 5 to 6 iterations across the reachable IEEE 754 double precision range.
 
 Note on cubic convergence and stability:
 
@@ -28,4 +28,4 @@ Solve[(xn - xp) == -(xp^2 - S) / (2 * ((xn + xp) / 2)), xn]
 (* Output: {{xn -> -Sqrt[S]}, {xn -> Sqrt[S]}} *)
 ```
 
-Geometrically, the underlying parabola is traversed in exactly one step when using the true midpoint derivative. In practice, substituting $x_n$​ with a preliminary Newton step lowers the pure theoretical convergence, yet it ensures algorithmic stability. For non-sparse floats like used IEEE 754 double, the half-step does not exceed machine precision; therefore, this safeguard prevents the engine from overstepping the solution. In the vicinity of zero, the method transitions smoothly into a bisectional regime, guaranteeing convergence under all conditions.
+Geometrically, the underlying parabola is traversed in exactly one step when using the true midpoint derivative. In practice, substituting $x_n$​ with a preliminary Newton step lowers the pure theoretical convergence, yet it ensures algorithmic stability. For non-sparse floats like used IEEE 754 double, the half-step does not exceed machine precision; therefore, this safeguard prevents the engine from overstepping the solution. In the vicinity of zero, the method transitions smoothly into a bisectional regime, guaranteeing convergence under non-zero conditions.
